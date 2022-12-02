@@ -23,11 +23,11 @@ const paths = {
     dest: 'dist/css/'
   },
   pug: {
-    src: 'src/html/PUG/**/*.pug',
+    src: 'src/html/pages/*.pug',
     dest: 'dist/'
   },
   html: {
-    src: 'src/html/HTML/*.html',
+    src: 'src/html/*.html',
     dest: 'dist/'
   },
   scripts: {
@@ -35,8 +35,8 @@ const paths = {
     dest: 'dist/js/'
   },
   images: {
-    src: 'src/img/*',
-    dest: 'dist/img/'
+    src: 'src/images/**/*',
+    dest: 'dist/images/'
   },
   libs: {
     src: {
@@ -148,7 +148,6 @@ export const clean = async () => await deleteAsync(['dist/*']);
 
 const build = gulp.series(
   clean,
-  htmlMinify,
   pug,
   gulp.parallel(
     styles,
